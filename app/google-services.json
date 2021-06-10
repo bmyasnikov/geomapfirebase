@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "247157440158",
+    "project_id": "geomapfirebase",
+    "storage_bucket": "geomapfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247157440158:android:acbac4a42ff276b984058f",
+        "android_client_info": {
+          "package_name": "com.example.geomapfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247157440158-v064dse0uihgpqgq27jhdim2nv2sfop4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtTsYtuWP6NEGdMEO28gRKCcHz_duMawg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247157440158-v064dse0uihgpqgq27jhdim2nv2sfop4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

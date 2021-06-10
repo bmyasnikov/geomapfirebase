@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GeomapFirebase</string>
+    <string name="access_token">pk.eyJ1IjoiYm9iMjU2IiwiYSI6ImNrcGZ3Zm5hbTBuNmYydm80NmE3bzUwYXMifQ.QQT5KvrY_IGh13xPNNiktw</string>
+    <string name="show">Показать</string>
+</resources>
