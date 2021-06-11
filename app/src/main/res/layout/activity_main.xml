@@ -15,19 +15,4 @@
         mapbox:mapbox_cameraTargetLng = "82.9346"
         mapbox:mapbox_cameraZoom = "10" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-        <Button
-            android:id="@+id/show_near"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
-            android:text="@string/show"
-            android:onClick="onClick"
-            tools:ignore="MissingConstraints" />
-    </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
