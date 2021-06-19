@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">GeomapFirebase</string>
     <string name="access_token">pk.eyJ1IjoiYm9iMjU2IiwiYSI6ImNrcGZ3Zm5hbTBuNmYydm80NmE3bzUwYXMifQ.QQT5KvrY_IGh13xPNNiktw</string>
+    <string name="show">Показать</string>
+    <string name="mapbox_streets">Mapbox streets</string>
+    <string name="outdoors">Outdoors</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="satellite">Satellite</string>
+    <string name="satellite_streets">Satellite streets</string>
+    <string name="map_style">Map style</string>
+    <string name="exit">Exit</string>
 </resources>

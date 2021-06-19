@@ -8,8 +8,10 @@ import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -75,17 +77,84 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final String ICON_ID = "ICON_ID";
     private static final String LAYER_ID = "LAYER_ID";
 
+    private int checker = 0;
+
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.access_token));
         setContentView(R.layout.activity_main);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
         coordinates = new ArrayList<Coordinate>();
         showCoords = new ArrayList<Coordinate>();
         dbReference = FirebaseDatabase.getInstance().getReference("coordinate");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.mapbox_streets: {
+                checker = 0;
+                return true;
+            }
+            case R.id.outdoors: {
+                checker = 1;
+                return true;
+            }
+            case R.id.light: {
+                checker = 2;
+                return true;
+            }
+            case R.id.dark: {
+                checker = 3;
+                return true;
+            }
+            case R.id.satellite: {
+                checker = 4;
+                return true;
+            }
+            case R.id.satellite_streets: {
+                checker = 5;
+                return true;
+            }
+            case R.id.exit: {
+                finish();
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public String getSchema() {
+        switch (checker) {
+            case 0:
+                return Style.MAPBOX_STREETS;
+            case 1:
+                return Style.OUTDOORS;
+            case 2:
+                return Style.LIGHT;
+            case 3:
+                return Style.DARK;
+            case 4:
+                return Style.SATELLITE;
+            case 5:
+                return Style.SATELLITE_STREETS;
+            default:
+                return Style.MAPBOX_STREETS;
+        }
     }
 
     //формула хаверсина
@@ -114,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(@NonNull MapboxMap mapboxMap) {
         MainActivity.this.map = mapboxMap;
-        mapboxMap.setStyle(new Style.Builder().fromUri(Style.MAPBOX_STREETS)
+        mapboxMap.setStyle(new Style.Builder().fromUri(getSchema())
                         .withImage(ICON_ID, BitmapFactory.decodeResource(
                                 MainActivity.this.getResources(), R.drawable.mapbox_marker_icon_default))
                         .withSource(new GeoJsonSource(SOURCE_ID,
